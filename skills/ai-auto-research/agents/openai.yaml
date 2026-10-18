@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Auto Research"
+  short_description: "Run bounded research with hypotheses and evidence"
+  default_prompt: "Use $ai-auto-research to inspect this project, establish a research contract, and run experiments within its budget."
