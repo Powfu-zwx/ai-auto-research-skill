@@ -1,6 +1,8 @@
 ---
 name: ai-auto-research
 description: Plan and run bounded autonomous research through falsifiable hypotheses, executable experiments, independent evaluation, and evidence-based strategy reviews. Use for iterative ML, algorithm, or systems experiments and for improving an existing autoresearch loop; not for literature-only summaries or ordinary one-off fixes.
+metadata:
+  version: "0.2.0"
 ---
 
 # AI Auto Research
@@ -18,6 +20,8 @@ Write a short campaign contract using [references/research-record.md](references
 - Allowed changes, protected evaluation and data boundaries, environment, and reproducibility requirements.
 - Total time, compute and spending limits; per-experiment timeout; resources reserved for confirmation; stopping and strategy-review conditions.
 - How the agent will measure results independently of its own written judgment.
+
+Express success as a checklist of required, observable criteria. For each item, identify the verifier, required evidence, and the candidate or artifact it applies to. Distinguish the research outcome from deliverable requirements: a complete, reproducible negative-result report can satisfy a reporting assignment without meeting an improvement target. Experiment count, elapsed effort, or an executor's completion message is not a substitute for acceptance evidence.
 
 Use already authorized resources and existing project limits. If no campaign budget is established, do read-only inspection and propose a bounded pilot before starting an experiment loop. Ask only for missing decisions that affect validity, scope, or spending. Do not repeatedly request permission for experiments inside an established contract.
 
@@ -59,6 +63,8 @@ Track screening candidates separately from the confirmed incumbent. If budget en
 
 Read [references/research-record.md](references/research-record.md) when creating or resuming records. When working specifically in Karpathy's autoresearch, also read [references/karpathy-autoresearch.md](references/karpathy-autoresearch.md).
 
+For long-running campaigns, interrupted execution, or already-authorized delegated work, read [references/goal-supervision.md](references/goal-supervision.md). It covers checking progress and recovering unfinished work without resetting the budget or duplicating live jobs. Ordinary short campaigns do not require a separate supervisor or another agent.
+
 ## Review the strategy
 
 At the contracted review interval, after repeated invalid runs, or when progress stalls, leave the execution loop long enough to review the evidence:
@@ -78,6 +84,8 @@ The review may change search strategy inside the contract. It must not silently 
 Reserve enough budget to compare the selected candidate with the baseline or incumbent under the predeclared confirmation plan. Match precision of the claim to the number and independence of observations. Report effect size and uncertainty when meaningful; do not invent statistical significance.
 
 Repeated development-set search can overfit. Use a protected final test only after selection, without feeding its results back into this campaign. If that test informs more tuning, treat it as development data and require a fresh protected test for a generalization claim.
+
+Before declaring success, verify every required acceptance item against the exact final artifacts and contract version. Evidence from an earlier revision is reusable only when its relevant inputs remain unchanged. A worker becoming idle or declaring completion triggers verification; it does not establish completion. When checks fail, record the unmet criteria and choose a concrete next action within the existing scope, remaining budget, and data boundaries. Continue authorized work without another generic permission request when no stopping condition applies.
 
 Stop at the first applicable contract boundary: exhausted budget, confirmed target, explicit user stop, unresolved validity failure, unavailable required resource, or the agreed diminishing-return rule. Leave a resumable checkpoint. The skill does not create background jobs, schedules, or an indefinite execution entitlement.
 

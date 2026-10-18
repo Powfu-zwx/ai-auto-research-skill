@@ -6,6 +6,8 @@ An instruction-only Agent Skill for bounded autonomous research. It helps an age
 
 The skill adds four lenses to an experiment loop: speed, altitude, depth, and range. It connects them to bottleneck diagnosis, expert methods, useful cross-disciplinary techniques, and experiments that reduce uncertainty. It distinguishes screened candidates from confirmed improvements and retains negative results.
 
+It also separates execution from acceptance. A completion claim triggers checks against the exact final artifacts. Long campaigns can use evidence-based progress inspection and bounded recovery, preserving the original budget and avoiding duplicate jobs. These are agent instructions, not a bundled supervisor service.
+
 ## Install
 
 Clone this repository, then copy `skills/ai-auto-research` into your agent's supported skill directory. Copy the whole folder, including `references` and `agents`.
@@ -31,9 +33,11 @@ You can also ask it to inspect and improve an existing autoresearch workflow wit
 
 Read [SKILL.md](skills/ai-auto-research/SKILL.md) for the workflow, [research-record.md](skills/ai-auto-research/references/research-record.md) for record keeping, and the [Karpathy adapter](skills/ai-auto-research/references/karpathy-autoresearch.md) for that specific repository.
 
+For long campaigns and interrupted or authorized delegated work, the skill loads the optional [goal supervision protocol](skills/ai-auto-research/references/goal-supervision.md). It does not require a fixed agent team or grant delegation permission.
+
 ## Validation and limits
 
-[Evaluation cases](evals/scenarios.md) define behavioral acceptance criteria. They are evaluation fixtures, not evidence that an agent passed them. This initial version is not benchmarked for scientific discovery quality and has not run an end-to-end GPU campaign.
+[Evaluation cases](evals/scenarios.md) define behavioral acceptance criteria. They are evaluation fixtures, not evidence that an agent passed them. The skill is not benchmarked for scientific discovery quality and has not run an end-to-end GPU campaign.
 
 The skill cannot guarantee novel findings, reliable measurements from a broken harness, or improvements within a budget. It allows an unchanged baseline or an inconclusive result. Claims should remain proportional to the evidence.
 
@@ -43,6 +47,8 @@ Contributions should include a realistic research scenario, the observed failure
 
 Conceptual inspiration: Felix Rieseberg's [How to be more ambitious: A tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/) and Andrej Karpathy's [autoresearch](https://github.com/karpathy/autoresearch).
 
-The campaign contracts, confirmation rules, records, and adapter in this repository are an original synthesis. No endorsement or measured equivalence to either source is claimed. No upstream code or article text is bundled.
+Acceptance-based completion and progress supervision also draw conceptual inspiration from [lidangzzz/goal-driven](https://github.com/lidangzzz/goal-driven/tree/c8e54ba3e9a4cf65df8fd9d92d0f9b231cab7f45). This package retains finite research budgets, protected evaluation, and optional execution arrangements; it does not copy that project's prompt template or claim its reported runtimes.
+
+The campaign contracts, confirmation rules, records, supervision protocol, and adapter in this repository are an original synthesis. No endorsement or measured equivalence to the sources is claimed. No upstream code, prompt template, or article text is bundled.
 
 MIT licensed. See [LICENSE](LICENSE).
